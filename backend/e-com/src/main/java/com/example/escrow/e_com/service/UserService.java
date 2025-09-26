@@ -2,6 +2,8 @@ package com.example.escrow.e_com.service;
 
 import java.util.Optional;
 
+import com.example.escrow.e_com.Role;
+import com.example.escrow.e_com.dto.UpdateRequestDTO;
 import com.example.escrow.e_com.dto.UserRegisterRequest;
 import com.example.escrow.e_com.dto.UserResponse;
 import com.example.escrow.e_com.entity.User;
@@ -15,18 +17,19 @@ public interface UserService {
     UserResponse authenticateUser(String email, String password) throws UserNotFoundException;
 
     // User Management
-    Optional<UserResponse> findByEmail(String email);
-    Optional<UserResponse> findById(Long id);
+    UserResponse findByEmail(String email) throws UserNotFoundException;
+    UserResponse findById(Long id) throws UserNotFoundException;
     boolean existsByEmail(String email);
 
     // Profile Management
-    UserResponse updateUserProfile(Long userId, String name);
+    UserResponse updateUserProfile(Long userId, UpdateRequestDTO dto) throws UserNotFoundException;
 
     // Role Management
-    boolean hasRole(User user, String role);
-    UserResponse updateUserRole(Long userId, String newRole);
+    boolean hasRole(User user, Role role);
+    UserResponse updateUserRole(Long userId, Role newRole);
 
-    // Seller specific
-    boolean isVerifiedSeller(User user);
+
+    void deleteUser(Long id);
+
 }
 

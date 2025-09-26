@@ -1,7 +1,9 @@
 package com.example.escrow.e_com.exception;
 
-public class UserNotFoundException extends  Exception{
-    public UserNotFoundException(String s) {
-        super(s);
+public class UserNotFoundException extends RuntimeException {
+    public UserNotFoundException(String message) {
+        super(message);
     }
 }
+
+

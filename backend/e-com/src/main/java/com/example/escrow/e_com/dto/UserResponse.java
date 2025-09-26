@@ -1,6 +1,6 @@
 package com.example.escrow.e_com.dto;
 
-import lombok.Builder;
+import com.example.escrow.e_com.Role;
 import lombok.Data;
 
 @Data
@@ -9,6 +9,6 @@ public class UserResponse {
     private Long id;
     private String name;
     private String email;
-    private String role;
+    private Role role;
 
 }

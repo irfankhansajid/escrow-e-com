@@ -1,31 +1,20 @@
 package com.example.escrow.e_com.dto;
 
-import com.example.escrow.e_com.Role;
-import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.validation.constraints.Email;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.Size;
-
 import lombok.Data;
 
 @Data
-public class UserRegisterRequest {
+public class UpdateRequestDTO {
 
-    private Long id;
-
-    @Size(min = 6, max = 50)
-    @NotBlank
+    @Size(min = 2, max = 50, message = "Name must be between 2 and 50 characters")
     private String name;
 
-    @Email
-    @NotBlank
+    @Email(message = "Invalid email format")
     private String email;
 
-    @Size(min = 6, max = 50)
+    @Size(min = 6, message = "Password must be at least 6 characters")
     @NotBlank
     private String password;
-
-    private Role role;
-
-
 }
